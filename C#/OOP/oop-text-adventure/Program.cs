@@ -1,4 +1,7 @@
-﻿// Prompt user for name
+﻿// Include namespace
+using OOPAdventure;
+
+// Prompt user for name
 Console.WriteLine("Hello, what's your name?");
 
 // Get user input
@@ -11,5 +14,8 @@ if (name == String.Empty)
     name = "No Name";
 }
 
+// Create an instance of the Player class
+var player = new Player(name);
+
 // Respond to the user
-Console.WriteLine("Welcome {0} to your OOP adventure!", name);
+Console.WriteLine("Welcome {0} to your OOP adventure!", player.Name);

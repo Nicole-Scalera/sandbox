@@ -1,0 +1,69 @@
+Object-Oriented Programming with C# - Notes
+
+- OOP is based on the concept of wrapping code around logic in special containers called objects.
+- In C#, we use classes to define each of these objects.
+- Classes represent a template for:
+	- How an object should behave
+	- What it should store or expose to other objects.
+- In .Net, all classes extend the base Object class.
+
+
+- Create source folder (Src) by right-clicking on the project and going to Add > New Folder.
+- We can use this to organize the code in our project.
+- Create a new class as well.
+- Right-click on Src and choose Add > New Class.
+- Visual Studio has several templates.
+- Just choose the Empty Class template and name it Character.
+- In the new class, create a namespace.
+	- Namespaces allow you to avoid naming conflicts with the classes in your program.
+	- For example, if you download a library from someone else, which may have classes with the same names.
+	- To avoid this, we put our own libraries/code into its own namespace. This ensures we don't have compiling issues with our code.
+
+- Name the namespace OOPAdventure.
+- Make the class public, so that it is accessible by all other classes in the program.
+- Then, use another keyword, called abstract.
+- This will let the compiler (and other developers reading your code) know that this is not a class that can be instantiated.
+- Instead, it will be a base class that other classes will extend off of in order to get their logic.
+- Then, finish off the class container with "class Character"
+	- Character is the name of the class.
+
+- Now, we need to add a constructor to the class.
+- Create a public constructor and pass in an argument for the character's name.
+- The constructor passes in the "name" variable we created earlier.
+- Next, we want to assign this to a variable.
+- Create the variable Name with a capital N.
+	- In C# we use capital letters to define the name of any public field or property.
+- Set it equal to the name that's passed into the class, that way we don't have a conflict.
+- It's important to make sure that you rename your internal variables different than the variables being passed in through the arguments.
+- In order for this to work, though, we need to define the name property outside of the constructor.
+- Mark the public string Name with a get-set keyword, which will automatically generate the code needed to make this name getter and setter work.
+
+- Remember that we can't directly instantiate the character because of the "abstract" keyword.
+	- Instantiate: creating an object from a class.
+- Because of this, we need to create a new character called Player.
+- Extending a class: when one class can inherit logic from another class.
+- The new class can use all the same variables and functions from the base class while adding custom logic unique to the specific class you're defining.
+
+- Create the Player class the same way you just did with the Character class in the Src folder.
+
+- Delete all the code and add the namespace OOPAdventure again.
+- Create the Player class by using "public class Player", but extend the class.
+- We can do this by doing the following "Player : Character"
+	- This will allow the Player class to inherit from the Character class.
+- First thing we need to do is create a constructor for the Player that accepts a single argument called "name" and passes it back up to Character.cs.
+- We use "base(name)" to pass the name back to the character base class.
+
+- Note that we can use logic in the Player's constructure to change and manipulate the name variable.
+- However, if it's empty, whatever gets passed into the Player class immediately gets sent back up to the Character class.
+- If we want to manipulate this name in any way, we need to do it after that step in the Player's constructure, but then we're going to have to save it back to the field manually.
+
+- Important: When we're inheriting from another class, any logic we've put in the Player's constructor is executed after the character constructor is called.
+
+- Now, we need to create the player character.
+- Go back to Program.cs and add the OOPAdventure namespace to the file.
+	- Add "using OOPAdventure;" to the top of the file.
+- Then, let's create an instance of the player.
+- Do this by creating a new variable called player, like so:
+	- var player = new Player(name)
+- Notice that I passed in the name variable.
+
