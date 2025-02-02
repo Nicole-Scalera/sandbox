@@ -1,8 +1,11 @@
 ﻿// Include namespace
 using OOPAdventure;
 
+// Create instance of English class
+var language = new English();
+
 // Prompt user for name
-Console.WriteLine("Hello, what's your name?");
+Console.WriteLine(language.ChooseYourName);
 
 // Get user input
 var name = Console.ReadLine();
