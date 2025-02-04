@@ -1,11 +1,11 @@
 ﻿// Include namespace
 using OOPAdventure;
 
-// Create instance of English class
-var language = new English();
+// Reference the Text class
+Text.LoadLanguage(new English());
 
 // Prompt user for name
-Console.WriteLine(language.ChooseYourName);
+Console.WriteLine(Text.Language.ChooseYourName);
 
 // Get user input
 var name = Console.ReadLine();
@@ -14,11 +14,11 @@ var name = Console.ReadLine();
 if (name == String.Empty)
 {
     // set the name to "No Name"
-    name = "No Name";
+    name = Text.Language.DefaultName;
 }
 
 // Create an instance of the Player class
 var player = new Player(name);
 
 // Respond to the user
-Console.WriteLine("Welcome {0} to your OOP adventure!", player.Name);
+Console.WriteLine(Text.Language.Welcome, player.Name);
