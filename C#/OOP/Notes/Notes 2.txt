@@ -1,0 +1,13 @@
+Object-Oriented Programming with C# - Notes 2
+
+- I've now started creating the Language.cs file.
+	- This file contains all the properties for all the text present in the game.
+- Created a public abstract class.
+- Preciously, we used the get; set; keywords to automatically create a getter and setter for our property.
+- However, sometimes we don't want other classes to be able to access or set values of these properties.
+- In that case, that's when scoping comes into play.
+- We won't use Public or Private, but instead, a different keyword.
+- We will use Protected for our setter and set it to an empty string:
+	- public string Welcome { get; protected set; } = "";
+
+- 
