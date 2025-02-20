@@ -1,4 +1,4 @@
-package _01_02b;
+package _00;
 
 public class Employee {
 
