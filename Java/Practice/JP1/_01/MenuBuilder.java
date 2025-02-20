@@ -1,4 +1,4 @@
-package _01_04;
+package _01;
 
 import java.util.ArrayList;
 
