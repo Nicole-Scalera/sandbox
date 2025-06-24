@@ -1,0 +1,66 @@
+Notes about Control Flow discussed in this lesson.
+
+- There are three types of control flows discussed here:
+    - If/Else Statements
+    - Regular For-loop
+    - Enhanced For-loop
+
+A. If/Else Statements
+- For this part, she used the following example that is very straight forward:
+
+    if (age < 13) {
+        price = 5;
+    } else {
+        price = 10;
+    }
+
+- This is good in a situation like determining movie ticket prices.
+- Then there is the Else-if statements, to build on to the two possible conditions
+
+    if (age < 13) {
+        price = 5;
+    } else if (age > 65) {
+        price = 7;
+    } else {
+        price = 10;
+    }
+
+- This added in an extra possibility for moviegoers who are above the age of 65.
+
+B. For Loops
+- A regular for loop is set up into three separate parts:
+    1. The initialization
+    2. Boolean condition
+    3. The step
+- These parts are all separated by semicolons.
+
+    for(int i = 1; i <= 10; i++) {
+        System.out.println(i);
+    }
+
+- The initialization says that a local variable called "i" should be created,
+and its value should be set to 1.
+    - This "i" variable can be used simply as a counter to keep track of the
+    number of iterations.
+- The boolean condition specifies when the for-loop should quit.
+    - i.e., how many iterations should be performed?
+- The final piece is the step, specifying what should happen to the variable "i"
+between each iteration.
+    - In this case, "i++" is an abbreviation for saying "i + 1" ("i" being
+    the current value).
+
+C. Enhanced For Loop
+- Let's say we have a collection of animals and we want to print out each item
+in the collection.
+- This type of for-loop is similar, but instead, we only have two parts inside
+of the parenthesis.
+    1. Handle for the collection
+    2. Name of the collection
+
+    for(String animal : animals){
+        System.out.println(animal);
+    }
+
+- The first part is the handle for the collection, "animal".
+- This is saying "for each string called 'animal' in the 'animals' collection,
+print out that animal's name."
