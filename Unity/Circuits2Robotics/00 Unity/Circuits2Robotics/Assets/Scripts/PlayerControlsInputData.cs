@@ -20,6 +20,7 @@ public class PlayerControlsInputData : MonoBehaviour
     public bool interaction_Pause;
     
     public string layerMaskName;
+    public GameObject hitObject;
 
     #endregion
 
@@ -45,9 +46,16 @@ public class PlayerControlsInputData : MonoBehaviour
         
         if (hits.Length > 0)
         {
+            // Debugging
             var firstHit = hits[0];
-            Debug.Log(firstHit);
-            layerMaskName = firstHit.collider.gameObject.layer.ToString();
+            var maskNumber = firstHit.collider.gameObject.layer;
+            layerMaskName = LayerMask.LayerToName(maskNumber);
+            Debug.Log("PlayerControlsInputData.cs >> First hit: " + layerMaskName);
+            
+            // Object hit
+            hitObject = firstHit.collider.gameObject;
+            Debug.Log("PlayerControlsInputData.cs >> Hit object: " + hitObject.name);
+            
         }
         else
         {
