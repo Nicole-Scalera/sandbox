@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2763764478771027063}
   - component: {fileID: 7409766116511031126}
   - component: {fileID: 5449011362755065110}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PositiveWire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67,7 +67,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 79658fbaaeeba784f9cf2d56f1bd44e7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 6075429980423656087}
   - component: {fileID: 5758692498204888345}
   - component: {fileID: 2317273515869165764}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: NegativeWire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,7 +179,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 79658fbaaeeba784f9cf2d56f1bd44e7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -233,7 +233,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1079114788205493996}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BatteryWires
   m_TagString: Untagged
   m_Icon: {fileID: 0}

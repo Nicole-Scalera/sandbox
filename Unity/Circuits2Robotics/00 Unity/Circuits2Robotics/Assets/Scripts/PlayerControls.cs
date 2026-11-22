@@ -94,12 +94,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             ""actions"": [
                 {
                     ""name"": ""LeftClick"",
-                    ""type"": ""PassThrough"",
+                    ""type"": ""Button"",
                     ""id"": ""2006c07e-805b-4f89-990f-52a09f569624"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": true
+                    ""initialStateCheck"": false
                 },
                 {
                     ""name"": ""RightClick"",
