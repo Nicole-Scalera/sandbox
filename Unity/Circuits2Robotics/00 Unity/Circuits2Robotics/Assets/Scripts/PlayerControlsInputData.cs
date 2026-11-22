@@ -1,9 +1,9 @@
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerControlsInputData : MonoBehaviour
 {
+    // Reference to the PlayerControls C# wrapper
     private PlayerControls input;
 
     #region Input Handling Variables
@@ -18,6 +18,8 @@ public class PlayerControlsInputData : MonoBehaviour
 
     // Reserved for future pause input.
     public bool interaction_Pause;
+    
+    public string layerMaskName;
 
     #endregion
 
@@ -43,7 +45,13 @@ public class PlayerControlsInputData : MonoBehaviour
         
         if (hits.Length > 0)
         {
-            Debug.Log(hits[0].collider.gameObject.name);
+            var firstHit = hits[0];
+            Debug.Log(firstHit);
+            layerMaskName = firstHit.collider.gameObject.layer.ToString();
+        }
+        else
+        {
+            layerMaskName = "";
         }
     }
 
@@ -122,74 +130,4 @@ public class PlayerControlsInputData : MonoBehaviour
             interaction_LeftClick = false;
         }
     }
-    
-    private void ClickDetected()
-    {
-        // RaycastHit2D[] hits = Physics2D.RaycastAll(Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()), Vector2.zero);
-        
-        // Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
-        // if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity))
-        // {
-        //     
-        //     SelectableTile tile = hit.collider.GetComponent<SelectableTile>();
-        //     if (tile != null)
-        //     {
-        //         if (selectedTile != null)
-        //             selectedTile.Deselect();
-        //     
-        //
-        //         selectedTile = tile;
-        //         selectedTile.Select();Physics.RaycastAll
-        //     }
-        // }
-    }
-    
-    // private void Interaction_LeftClick(InputAction.CallbackContext context)
-    // {
-    //     bool isPressed = context.ReadValueAsButton();
-    //
-    //     // Only a transition from released to pressed
-    //     // should count as a new click.
-    //     if (isPressed && !interaction_LeftClick)
-    //     {
-    //         leftClickPressedFrame = Time.frameCount;
-    //     }
-    //
-    //     // Store the current button state.
-    //     interaction_LeftClick = isPressed;
-    // }
-    
-    //
-    //
-    // /// <summary>
-    // /// Receives a performed LeftClick action.
-    // /// Notifies interested gameplay systems.
-    // /// </summary>
-    // private void Circuit_LeftClick(InputAction.CallbackContext context)
-    // {
-    //     if (!context.performed ||
-    //         !context.ReadValueAsButton())
-    //         return;
-    //
-    //     LeftClicked?.Invoke(MousePosition);
-    // }
-    //
-    // // Broadcasts a single left-click with its screen position.
-    // public event Action<Vector2> LeftClicked;
-    //
-    // /// <summary>
-    // /// Current mouse position in screen coordinates.
-    // /// Other systems may read this without using the
-    // /// Input System API directly.
-    // /// </summary>
-    // public Vector2 MousePosition
-    // {
-    //     get
-    //     {
-    //         if (Mouse.current == null)
-    //             return Vector2.zero;
-    //
-    //         return Mouse.current.position.ReadValue();
-    //     }
-    // }
 }
