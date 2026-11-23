@@ -70,29 +70,20 @@ public class WireManager : MonoBehaviour
 
     private void OnDisable()
     {
-        // ALBATROSS
-        // if (inputData != null)
-        //     inputData.LeftClicked -= HandleLeftClick;
-        
         // Prevent leftover unfinished wires.
         CancelPreview();
     }
 
     private void Update()
     {
-        leftClickPressed = inputData.interaction_LeftClick;
+        leftClickPressed = inputData.interaction_LeftClickWasPressed;
         mousePosition = inputData.mousePositionScreen;
         allCollidersUnderMouse = inputData.allRaycastHits;
         playerRay = inputData.playerRay;
         
-        // ALBATROSS
-        // Only the preview needs continuous mouse updates.
-        // if (previewWire != null && inputData != null)
-        //     UpdatePreview(inputData.MousePosition);
-        
         HandleLeftClick();
 
-        if (previewWire != null && inputData != null)
+        if (previewWire != null)
             UpdatePreview(mousePosition);
     }
 

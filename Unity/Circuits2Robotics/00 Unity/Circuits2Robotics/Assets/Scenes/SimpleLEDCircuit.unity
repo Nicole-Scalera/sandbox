@@ -422,7 +422,7 @@ MonoBehaviour:
   inputData: {fileID: 1363237115}
   sceneCamera: {fileID: 1767189302}
   wirePrefab: {fileID: 919213779384493087, guid: b033c5b1d9ac6954d8f818cbb75188d7, type: 3}
-  circuitValidator: {fileID: 0}
+  circuitValidator: {fileID: 255218812}
   wireThickness: 0.1
   normalMaterial: {fileID: 0}
   previewMaterial: {fileID: 0}

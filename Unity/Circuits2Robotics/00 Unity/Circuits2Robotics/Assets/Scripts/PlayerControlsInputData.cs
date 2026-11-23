@@ -11,8 +11,16 @@ public class PlayerControlsInputData : MonoBehaviour
     [Header("Interaction")]
 
     // True while the left mouse button is held.
-    public bool interaction_LeftClick;
-    public Vector2 mousePositionScreen;
+    public bool interaction_LeftClickIsPressed => input.Interaction.LeftClick.IsPressed();
+
+    // True only during the frame a new press occurs.
+    public bool interaction_LeftClickWasPressed => input.Interaction.LeftClick.WasPressedThisFrame();
+
+    // True only during the frame the button is released.
+    public bool interaction_LeftClickReleased => input.Interaction.LeftClick.WasReleasedThisFrame();
+    
+    // Current mouse position in screen coordinates.
+    public Vector2 mousePositionScreen => Mouse.current.position.ReadValue();
 
     // Reserved for future right-click input.
     public bool interaction_RightClick;
@@ -51,77 +59,21 @@ public class PlayerControlsInputData : MonoBehaviour
     // Called when the script is enabled, subscribes to input events.
     private void OnEnable()
     {
-        SubscribeAllActions();
+        // Enable the Interaction action map.
+        input.Interaction.Enable();
     }
     
     // Called when the script is disabled, unsubscribes to input events.
     private void OnDisable()
     {
-        UnsubscribeAllActions();
-
-        // // Clear the stored button state.
-        // interaction_LeftClick = false;
-        // leftClickPressedFrame = -1;
+        // Disable the map
+        input.Interaction.Disable();
     }
 
     private void OnDestroy()
     {
         // Dispose of the Input Actions instance.
         input?.Dispose();
-    }
-
-    #region Input Subscriptions
-
-    // Subscribe to all Input Action events to handle player input.
-    private void SubscribeAllActions()
-    {
-        // Note: Subscribe to the performed, subscribed, or canceled events of the Input Actions you want to handle.
-        // For example:
-        //
-        // input.Interaction.LeftClick.started += Interaction_LeftClick;
-        // input.Interaction.LeftClick.performed += Interaction_LeftClick;
-        // input.Interaction.LeftClick.canceled += Interaction_LeftClick;
-        
-        // input = reference to the generated PlayerControls wrapper.
-        // Interaction = the action map defined in the Input Actions asset.
-        // LeftClick = the action defined in the Interaction action map.
-        // performed = the event that is triggered when the action is performed.
-        
-        input.Interaction.LeftClick.started += Interaction_LeftClick;
-        input.Interaction.LeftClick.performed += Interaction_LeftClick;
-        input.Interaction.LeftClick.canceled += Interaction_LeftClick;
-        
-        // Enable the Interaction action map.
-        input.Interaction.Enable();
-    }
-
-    // Unsubscribe from all Input Action events to prevent memory leaks.
-    private void UnsubscribeAllActions()
-    {
-        input.Interaction.LeftClick.started -= Interaction_LeftClick;
-        input.Interaction.LeftClick.performed -= Interaction_LeftClick;
-        input.Interaction.LeftClick.canceled -= Interaction_LeftClick;
-        
-        // Disable the map
-        input.Interaction.Disable();
-    }
-
-    #endregion
-    
-    /// <summary>
-    /// Reads the current state of the left-click action.
-    /// Detects a new press without generating an event.
-    /// </summary>
-    private void Interaction_LeftClick(InputAction.CallbackContext context)
-    {
-        if (context.started)
-        {
-            interaction_LeftClick = true;
-        }
-        else if (context.canceled)
-        {
-            interaction_LeftClick = false;
-        }
     }
 
     #region Raycasting
@@ -143,9 +95,6 @@ public class PlayerControlsInputData : MonoBehaviour
         {
             // All raycast hits under the mouse cursor.
             allRaycastHits = hits;
-            
-            // Read the current mouse position in screen coordinates.
-            mousePositionScreen = Mouse.current.position.ReadValue();
             
             // The following is for debugging purposes only.
             // DebugRaycastingInfo(allRaycastHits);
