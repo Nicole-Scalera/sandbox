@@ -19,6 +19,7 @@ public class PlayerControlsInputData : MonoBehaviour
     // Reserved for future pause input.
     public bool interaction_Pause;
     
+    // Layer mask and raycasting information
     public string layerMaskName;
     public GameObject hitObject;
 
@@ -39,28 +40,7 @@ public class PlayerControlsInputData : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // Create an array of RaycastHit objects to store the results of the raycast.
-        // This RaycastAll() method will return all colliders that are hit by the ray, not just the first one.
-        // However, I really only need the first one for right now.
-        RaycastHit[] hits = Physics.RaycastAll(Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue()));
-        
-        if (hits.Length > 0)
-        {
-            // Debugging
-            var firstHit = hits[0];
-            var maskNumber = firstHit.collider.gameObject.layer;
-            layerMaskName = LayerMask.LayerToName(maskNumber);
-            Debug.Log("PlayerControlsInputData.cs >> First hit: " + layerMaskName);
-            
-            // Object hit
-            hitObject = firstHit.collider.gameObject;
-            Debug.Log("PlayerControlsInputData.cs >> Hit object: " + hitObject.name);
-            
-        }
-        else
-        {
-            layerMaskName = "";
-        }
+        Raycasting_LayerMaskInfo();
     }
 
     // Called when the script is enabled, subscribes to input events.
@@ -136,6 +116,32 @@ public class PlayerControlsInputData : MonoBehaviour
         else if (context.canceled)
         {
             interaction_LeftClick = false;
+        }
+    }
+    
+    private void Raycasting_LayerMaskInfo()
+    {
+        // Create an array of RaycastHit objects to store the results of the raycast.
+        // This RaycastAll() method will return all colliders that are hit by the ray, not just the first one.
+        // However, I really only need the first one for right now.
+        RaycastHit[] hits = Physics.RaycastAll(Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue()));
+        
+        if (hits.Length > 0)
+        {
+            // Debugging
+            var firstHit = hits[0];
+            var maskNumber = firstHit.collider.gameObject.layer;
+            layerMaskName = LayerMask.LayerToName(maskNumber);
+            Debug.Log("PlayerControlsInputData.cs >> First hit: " + layerMaskName);
+            
+            // Object hit
+            hitObject = firstHit.collider.gameObject;
+            Debug.Log("PlayerControlsInputData.cs >> Hit object: " + hitObject.name);
+            
+        }
+        else
+        {
+            layerMaskName = "";
         }
     }
 }
