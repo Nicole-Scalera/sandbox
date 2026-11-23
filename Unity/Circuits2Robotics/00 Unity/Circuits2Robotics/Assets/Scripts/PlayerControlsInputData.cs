@@ -25,6 +25,7 @@ public class PlayerControlsInputData : MonoBehaviour
 
     // Array of all colliders under the mouse cursor
     public RaycastHit[] allRaycastHits;
+    public Ray playerRay;
 
     #endregion
 
@@ -43,7 +44,8 @@ public class PlayerControlsInputData : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Raycasting_LayerMaskInfo();
+        Raycasting();
+        RaycastingAll();
     }
 
     // Called when the script is enabled, subscribes to input events.
@@ -124,7 +126,13 @@ public class PlayerControlsInputData : MonoBehaviour
 
     #region Raycasting
     
-    private void Raycasting_LayerMaskInfo()
+    private void Raycasting()
+    {
+        // Create a Ray from the camera through the mouse position.
+        playerRay = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
+    }
+    
+    private void RaycastingAll()
     {
         // Create an array of RaycastHit objects to store the results of the raycast.
         // This RaycastAll() method will return all colliders that are hit by the ray, not just the first one.

@@ -51,6 +51,10 @@ public class WireManager : MonoBehaviour
     // All colliders under the mouse cursor from the last raycast.
     // private GameObject[] allCollidersUnderMouse;
     private RaycastHit[] allCollidersUnderMouse;
+    
+    // The Player's raycast hit information from the last frame.
+    // Doesn't mean they have to be hovering over a valid object.
+    private Ray playerRay;
     // ==================
 
     private void Awake()
@@ -61,10 +65,7 @@ public class WireManager : MonoBehaviour
 
     private void OnEnable()
     {
-        // ALBATROSS
-        // Subscribe to our centralized input event.
-        // if (inputData != null)
-        //     inputData.LeftClicked += HandleLeftClick;
+        
     }
 
     private void OnDisable()
@@ -79,19 +80,20 @@ public class WireManager : MonoBehaviour
 
     private void Update()
     {
-        
         leftClickPressed = inputData.interaction_LeftClick;
         mousePosition = inputData.mousePositionScreen;
         allCollidersUnderMouse = inputData.allRaycastHits;
+        playerRay = inputData.playerRay;
         
         // ALBATROSS
         // Only the preview needs continuous mouse updates.
         // if (previewWire != null && inputData != null)
         //     UpdatePreview(inputData.MousePosition);
-
-        HandleLeftClick();
         
+        HandleLeftClick();
 
+        if (previewWire != null && inputData != null)
+            UpdatePreview(mousePosition);
     }
 
     /// <summary>
@@ -227,10 +229,6 @@ public class WireManager : MonoBehaviour
 
         if (collider != null)
             collider.enabled = false;
-
-        // ALBATROSS
-        // if (inputData != null)
-        //     UpdatePreview(inputData.MousePosition);
         
         UpdatePreview(mousePosition);
     }
@@ -248,11 +246,6 @@ public class WireManager : MonoBehaviour
             return;
 
         Physics.SyncTransforms();
-
-        // ALBATROSS
-        Ray ray = sceneCamera.ScreenPointToRay(
-            mousePosition
-        );
         
         ConnectionPoint target = FindClosestPole(allCollidersUnderMouse);
 
@@ -273,10 +266,10 @@ public class WireManager : MonoBehaviour
             startingPoint.ConnectionPosition
         );
 
-        if (plane.Raycast(ray, out float distance))
+        if (plane.Raycast(playerRay, out float distance))
         {
             previewWire.SetPreviewPosition(
-                ray.GetPoint(distance)
+                playerRay.GetPoint(distance)
             );
         }
     }
