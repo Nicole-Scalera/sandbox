@@ -11,17 +11,17 @@ public class PlayerControlsInputData : MonoBehaviour
     [Header("Interaction")]
 
     // True while the left mouse button is held.
-    public bool interaction_LeftClick;
+    private bool interaction_LeftClick;
 
     // Reserved for future right-click input.
-    public bool interaction_RightClick;
+    private bool interaction_RightClick;
 
     // Reserved for future pause input.
-    public bool interaction_Pause;
+    private bool interaction_Pause;
     
     // Layer mask and raycasting information
-    public string layerMaskName;
-    public GameObject hitObject;
+    private string layerMaskName;
+    private GameObject hitObject;
 
     #endregion
 

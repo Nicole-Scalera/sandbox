@@ -131,6 +131,8 @@ MonoBehaviour:
   interaction_LeftClick: 0
   interaction_RightClick: 0
   interaction_Pause: 0
+  layerMaskName: 
+  hitObject: {fileID: 0}
 --- !u!1 &6545422655810706785
 GameObject:
   m_ObjectHideFlags: 0

@@ -295,6 +295,62 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1560753214
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1560753215}
+  - component: {fileID: 1560753216}
+  m_Layer: 0
+  m_Name: WireManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1560753215
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1560753214}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.17804, y: 0.75476, z: -0.46723}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1560753216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1560753214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 835407aafaca409a9be1fab4fa5f05bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WireManager
+  inputData: {fileID: 0}
+  sceneCamera: {fileID: 0}
+  wirePrefab: {fileID: 0}
+  circuitValidator: {fileID: 0}
+  wireThickness: 0.1
+  normalMaterial: {fileID: 0}
+  previewMaterial: {fileID: 0}
+  selectedMaterial: {fileID: 0}
+  maxRayDistance: 500
+  interactionLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1 &2108259379
 GameObject:
   m_ObjectHideFlags: 0
@@ -385,10 +441,6 @@ PrefabInstance:
     - target: {fileID: 1624271535546756179, guid: 1a3a12e6e964ed242b7d20d4913a3a47, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 1624271535546756179, guid: 1a3a12e6e964ed242b7d20d4913a3a47, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5359108298815784358, guid: 1a3a12e6e964ed242b7d20d4913a3a47, type: 3}
       propertyPath: m_LocalPosition.x
@@ -617,3 +669,4 @@ SceneRoots:
   - {fileID: 6973205525497339484}
   - {fileID: 6700582595738344793}
   - {fileID: 5028592280451241357}
+  - {fileID: 1560753215}
