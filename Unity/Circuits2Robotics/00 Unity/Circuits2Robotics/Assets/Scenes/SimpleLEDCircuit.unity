@@ -295,6 +295,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1363237115 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3200800616216399539, guid: 1a3a12e6e964ed242b7d20d4913a3a47, type: 3}
+  m_PrefabInstance: {fileID: 1601441084509382018}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b525cb0d052047dbbd48f9990b8f1079, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerControlsInputData
 --- !u!1 &1560753214
 GameObject:
   m_ObjectHideFlags: 0
@@ -339,8 +350,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 835407aafaca409a9be1fab4fa5f05bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WireManager
-  inputData: {fileID: 0}
-  sceneCamera: {fileID: 0}
+  inputData: {fileID: 1363237115}
+  sceneCamera: {fileID: 1767189302}
   wirePrefab: {fileID: 0}
   circuitValidator: {fileID: 0}
   wireThickness: 0.1
@@ -351,6 +362,11 @@ MonoBehaviour:
   interactionLayers:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!20 &1767189302 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 6674699161855511142, guid: 1a3a12e6e964ed242b7d20d4913a3a47, type: 3}
+  m_PrefabInstance: {fileID: 1601441084509382018}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2108259379
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,17 +11,20 @@ public class PlayerControlsInputData : MonoBehaviour
     [Header("Interaction")]
 
     // True while the left mouse button is held.
-    private bool interaction_LeftClick;
+    public bool interaction_LeftClick;
+    public Vector2 mousePositionScreen;
 
     // Reserved for future right-click input.
-    private bool interaction_RightClick;
+    public bool interaction_RightClick;
 
     // Reserved for future pause input.
-    private bool interaction_Pause;
+    public bool interaction_Pause;
     
     // Layer mask and raycasting information
-    private string layerMaskName;
-    private GameObject hitObject;
+    // public GameObject hitObject;
+
+    // Array of all colliders under the mouse cursor
+    public RaycastHit[] allRaycastHits;
 
     #endregion
 
@@ -118,6 +121,8 @@ public class PlayerControlsInputData : MonoBehaviour
             interaction_LeftClick = false;
         }
     }
+
+    #region Raycasting
     
     private void Raycasting_LayerMaskInfo()
     {
@@ -128,20 +133,32 @@ public class PlayerControlsInputData : MonoBehaviour
         
         if (hits.Length > 0)
         {
-            // Debugging
-            var firstHit = hits[0];
-            var maskNumber = firstHit.collider.gameObject.layer;
-            layerMaskName = LayerMask.LayerToName(maskNumber);
-            Debug.Log("PlayerControlsInputData.cs >> First hit: " + layerMaskName);
+            // All raycast hits under the mouse cursor.
+            allRaycastHits = hits;
             
-            // Object hit
-            hitObject = firstHit.collider.gameObject;
-            Debug.Log("PlayerControlsInputData.cs >> Hit object: " + hitObject.name);
+            // Read the current mouse position in screen coordinates.
+            mousePositionScreen = Mouse.current.position.ReadValue();
             
-        }
-        else
-        {
-            layerMaskName = "";
+            // The following is for debugging purposes only.
+            // DebugRaycastingInfo(allRaycastHits);
         }
     }
+    
+    /// <summary>
+    /// Debug the first hit object and its layer mask name under the Player's raycast.
+    /// </summary>
+    private void DebugRaycastingInfo(RaycastHit[] allRaycastHits)
+    {
+        // Get the first hit object and its layer mask name.
+        var firstHit = allRaycastHits[0];
+        var maskNumber = firstHit.collider.gameObject.layer;
+        var firstLayerMaskName = LayerMask.LayerToName(maskNumber);
+        var firstHitObject = firstHit.collider.gameObject;
+            
+        // Debug results.
+        Debug.Log("PlayerControlsInputData.cs >> First layer mask hit: " + firstLayerMaskName);
+        Debug.Log("PlayerControlsInputData.cs >> First object hit: " + firstHitObject.name);
+    }
+    
+    #endregion
 }
