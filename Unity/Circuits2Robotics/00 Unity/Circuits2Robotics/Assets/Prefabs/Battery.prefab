@@ -658,10 +658,54 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1098413455949783921, guid: 8c8aebd449001d249ae2d10eb40d95ac, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6183374517612408857}
+    - targetCorrespondingSourceObject: {fileID: 2213859126097325707, guid: 8c8aebd449001d249ae2d10eb40d95ac, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6807692104434784529}
   m_SourcePrefab: {fileID: 100100000, guid: 8c8aebd449001d249ae2d10eb40d95ac, type: 3}
+--- !u!1 &320114847042496290 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2213859126097325707, guid: 8c8aebd449001d249ae2d10eb40d95ac, type: 3}
+  m_PrefabInstance: {fileID: 1929919866245106089}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6807692104434784529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 320114847042496290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0b9242697f04e95bb1a2d34b27ebc0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ConnectionPoint
+  poleType: 1
+  connectionAnchor: {fileID: 0}
 --- !u!4 &1455149531872737093 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1079114788205493996, guid: 8c8aebd449001d249ae2d10eb40d95ac, type: 3}
   m_PrefabInstance: {fileID: 1929919866245106089}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1582499406318873304 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1098413455949783921, guid: 8c8aebd449001d249ae2d10eb40d95ac, type: 3}
+  m_PrefabInstance: {fileID: 1929919866245106089}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6183374517612408857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1582499406318873304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0b9242697f04e95bb1a2d34b27ebc0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ConnectionPoint
+  poleType: 0
+  connectionAnchor: {fileID: 0}

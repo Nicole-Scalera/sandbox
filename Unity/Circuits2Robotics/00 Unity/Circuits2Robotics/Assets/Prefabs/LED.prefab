@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2357055788704139834}
   - component: {fileID: 1514992633245371253}
   - component: {fileID: 7122545036871710274}
+  - component: {fileID: 5863376345532644416}
   m_Layer: 0
   m_Name: Cathode
   m_TagString: Untagged
@@ -114,6 +115,20 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!114 &5863376345532644416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 670487543337319938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0b9242697f04e95bb1a2d34b27ebc0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ConnectionPoint
+  poleType: 5
+  connectionAnchor: {fileID: 0}
 --- !u!1 &909249881693991926
 GameObject:
   m_ObjectHideFlags: 0
@@ -159,6 +174,7 @@ GameObject:
   - component: {fileID: 3802006713879962408}
   - component: {fileID: 7608829851836434959}
   - component: {fileID: 8427032437761758863}
+  - component: {fileID: 6173593425642424994}
   m_Layer: 0
   m_Name: Anode
   m_TagString: Untagged
@@ -261,6 +277,20 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!114 &6173593425642424994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4970407823654843229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0b9242697f04e95bb1a2d34b27ebc0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ConnectionPoint
+  poleType: 4
+  connectionAnchor: {fileID: 0}
 --- !u!1 &5779580026848296718
 GameObject:
   m_ObjectHideFlags: 0

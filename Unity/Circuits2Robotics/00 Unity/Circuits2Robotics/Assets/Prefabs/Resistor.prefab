@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3121653279511456635}
   - component: {fileID: 2172400981112717014}
   - component: {fileID: 954101156713376349}
+  - component: {fileID: 8702602705103598486}
   m_Layer: 3
   m_Name: BottomPole
   m_TagString: Untagged
@@ -114,6 +115,20 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!114 &8702602705103598486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2589411258260362108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0b9242697f04e95bb1a2d34b27ebc0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ConnectionPoint
+  poleType: 3
+  connectionAnchor: {fileID: 0}
 --- !u!1 &6338634911913332509
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,6 +289,7 @@ GameObject:
   - component: {fileID: 1913412689612371124}
   - component: {fileID: 4731387737473773447}
   - component: {fileID: 4526100055482763068}
+  - component: {fileID: 4952796693237426666}
   m_Layer: 3
   m_Name: TopPole
   m_TagString: Untagged
@@ -376,3 +392,17 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!114 &4952796693237426666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8029251886910279271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0b9242697f04e95bb1a2d34b27ebc0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ConnectionPoint
+  poleType: 2
+  connectionAnchor: {fileID: 0}
